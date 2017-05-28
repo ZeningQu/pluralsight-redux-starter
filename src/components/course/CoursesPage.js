@@ -15,16 +15,21 @@ class CoursesPage extends React.Component {
         const course = this.state.course;
         course.title = event.target.value;
         this.setState({course: course});
-    }
+    };
 
     onClickSave = () => {
         this.props.dispatch(courseActions.createCourse(this.state.course)); // ugly dispatch, will clean up later
+    };
+
+    courseRow(course, index) {
+        return <div key={index}>{course.title}</div>;
     }
 
     render() {
         return(
             <div>
                 <h1>Courses</h1>
+                {this.props.courses.map(this.courseRow)}
                 <h2>Add Course</h2>
                 <input 
                     type="text"
@@ -39,6 +44,7 @@ class CoursesPage extends React.Component {
         );
     }
 }
+
 
 function mapStateToProps(state, ownProps) {
     return {

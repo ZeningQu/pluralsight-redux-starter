@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import courses from './courseREducer';
+import courses from './courseReducer';
 
 const rootReducer = combineReducers({
     courses // ES6 shorthand property name
